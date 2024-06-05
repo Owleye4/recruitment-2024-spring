@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <cstddef>
 #include <cstdlib>
+#include <omp.h>
 
 void optimized_pre_phase1(size_t) {}
 
@@ -19,6 +20,7 @@ void optimized_do_phase1(float* data, size_t size) {
 }
 
 void optimized_do_phase2(size_t* result, float* data, float* query, size_t size) {
+#   pragma omp parallel for schedule(static)
     for (size_t i = 0; i < size; ++i) {
         size_t l = 0, r = size;
         while (l < r) {

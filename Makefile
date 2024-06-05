@@ -1,4 +1,4 @@
-CXXFLAGS=-Og -g -fsanitize=address -Wall -Wextra -Wshadow  -pipe
+CXXFLAGS=-Og -g -Wall -Wextra -Wshadow  -pipe -fopenmp
 
 all: main
 
@@ -12,4 +12,4 @@ baseline.o: baseline.cc
 	g++ $(CXXFLAGS) -c -o $@ $^
 
 clean:
-	rm -f *.o main
+	rm -f *.o main *.txt
